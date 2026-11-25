@@ -22,3 +22,15 @@ navLinks.querySelectorAll("a").forEach(link => link.addEventListener("click", ()
   menuButton.setAttribute("aria-expanded", "false");
 }));
 document.querySelector("#year").textContent = new Date().getFullYear();
+
+const dropdownButton = document.querySelector(".dropdown-toggle");
+const dropdownMenu = document.querySelector("#projects-menu");
+
+if (dropdownButton && dropdownMenu) {
+  dropdownButton.addEventListener("click", () => {
+    const isOpen = dropdownButton.getAttribute("aria-expanded") === "true";
+
+    dropdownMenu.hidden = isOpen;
+    dropdownButton.setAttribute("aria-expanded", String(!isOpen));
+  });
+}
